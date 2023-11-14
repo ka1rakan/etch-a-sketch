@@ -1,16 +1,21 @@
 const container = document.querySelector("#container");
 
+const slider = document.querySelector("#myRange");
+const output = document.getElementById("demo");
 
-const boxPerRow = prompt("Box per row (max 100): ")
-if(boxPerRow<=100){
-    for(let i=0; i<boxPerRow**2; i++){
-        const div = document.createElement("div");
-        div.style.width=`${100/boxPerRow}%`;
-        div.style.height = `${100/boxPerRow}%`
-        container.appendChild(div);
-    }
-}else{
-    alert('You did not enter a valid value!')
+output.innerText = slider.value; // Display the default slider value
+let boxPerRow = slider.value;
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerText = this.value;
+  boxPerRow = this.value;
+}
+
+for(let i=0; i<boxPerRow**2; i++){
+    const div = document.createElement("div");
+    div.style.width=`${100/boxPerRow}%`;
+    div.style.height = `${100/boxPerRow}%`
+    container.appendChild(div);
 }
 
 const dividers = document.querySelectorAll("#container div")
@@ -37,3 +42,4 @@ reset.addEventListener("click", (e)=>{
             ' '----' '
                 '__'
 **/
+
