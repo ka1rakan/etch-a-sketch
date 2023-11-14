@@ -2,11 +2,7 @@ const container = document.querySelector("#container");
 const slider = document.querySelector("#myRange");
 const output = document.getElementById("demo");
 
-function deleteChildren(parent){
-    while(parent.firstChild){
-        parent.removeChild(parent.firstChild)
-    }
-}
+
 
 output.innerText = slider.value; // Display the default slider value
 let boxPerRow = slider.value;
@@ -32,6 +28,12 @@ reset.addEventListener("click", (e)=>{
 })
 
 
+
+function deleteChildren(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
+    }
+}
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
