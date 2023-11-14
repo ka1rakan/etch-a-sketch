@@ -4,7 +4,7 @@
 }
 *{
     margin:0;
-    box-sizing:border-box;
+    padding:0;
 }
 
 header{
@@ -15,29 +15,40 @@ header{
     border-top-right-radius: 15px;
     padding-top: 20px;
     text-align:center;
-    font-size:75px;
+    font-size:60px;
     font-family: headerFont;
     color: rgb(255,215,0);
 
+}
+#buttonsDiv{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    gap:5rem;
+    left: 4rem;
+    top: 35%; 
 }
 
 main{
     background-color: rgba(224, 5, 4, 1);
     width:1080px;
     margin: 0 auto;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px ;
 }
 
 #container{
-    width:960px;
+    width:840px;
+    height: 680px;
     margin: 0 auto;
     display:flex;
+    gap:0;
     flex-wrap: wrap;
+    padding-bottom:4rem;
 }
 
 #container div{
     background-color: rgba(202, 202, 202, 0.94);
-    margin: 0.5% 0.5%;
-    flex: 1 0 5%;
-    height: 5vh;
+    width:5%
 }
 
