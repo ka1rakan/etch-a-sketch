@@ -4,7 +4,7 @@ const output = document.getElementById("demo");
 
 
 
-output.innerText = slider.value; // Display the default slider value
+output.innerText = `${slider.value}x${slider.value}`; // Display the default slider value
 let boxPerRow = slider.value;
 for(let i=0; i<boxPerRow**2; i++){
     const div = document.createElement("div");
@@ -37,7 +37,7 @@ function deleteChildren(parent){
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
-    output.innerText = this.value;
+    output.innerText =  `${this.value}x${this.value}`;
     boxPerRow = this.value;
     deleteChildren(container)
     for(let i=0; i<boxPerRow**2; i++){
