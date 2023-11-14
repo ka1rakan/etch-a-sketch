@@ -9,6 +9,6 @@ for(let i=0; i<256; i++){
 const dividers = document.querySelectorAll("#container div")
 dividers.forEach((div)=>{
     div.addEventListener("mouseover",({target})=>{
-        target.style.backgroundColor ="red"
+        target.style.backgroundColor ="rgba(108, 108, 108, 0.94)"
     })
 })
