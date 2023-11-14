@@ -19,3 +19,10 @@ buttons.forEach((button)=>{
         console.log(e.target.id)
     })
 })
+
+const reset = document.querySelector("#reset");
+reset.addEventListener("click", (e)=>{
+    dividers.forEach((div)=>{
+        div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
+    })
+})
