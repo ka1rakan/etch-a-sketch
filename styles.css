@@ -161,3 +161,10 @@ main{
   color:rgb(255,215,0);
   font-family: currentModeFont;
 }
+
+#dark-mode{
+  color:  rgba(108, 108, 108, 0.94);
+}
+#rainbow-mode{
+  color:rgba(109, 0, 255, 0.8);
+}
