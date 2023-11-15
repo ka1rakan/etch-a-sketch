@@ -56,6 +56,31 @@ function deleteChildren(parent){
         parent.removeChild(parent.firstChild)
     }
 }
+function addDarkDivHover(){
+    let dividers = document.querySelectorAll("#container div")
+    dividers.forEach((div)=>{
+        div.addEventListener("mouseover",({target})=>{
+            target.style.backgroundColor ="rgba(108, 108, 108, 0.94)"
+        })
+    })
+}
+function addRainbowDivHover(){
+    let dividers = document.querySelectorAll("#container div")
+    dividers.forEach((div)=>{
+        div.addEventListener("mouseover",({target})=>{
+            target.style.backgroundColor = `${RGBcolor()}`
+        })
+    })
+}
+function addResetHover(){
+    let reset = document.querySelector("#reset");
+    let dividers = document.querySelectorAll("#container div")
+    reset.addEventListener("click", (e)=>{
+        dividers.forEach((div)=>{
+            div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
+        })
+    })
+}
 
 let modeButtons = document.querySelectorAll(".modeButton")
 modeButtons.forEach((modeButton)=>{
@@ -63,34 +88,13 @@ modeButtons.forEach((modeButton)=>{
         currentMode = e.target.value;
         currentModeText.textContent=`Current Mode: ${currentMode}`
         if(currentMode == "Dark"){
-            let dividers = document.querySelectorAll("#container div")
-            dividers.forEach((div)=>{
-                div.addEventListener("mouseover",({target})=>{
-                    target.style.backgroundColor ="rgba(108, 108, 108, 0.94)"
-                })
-            })
-
-            let reset = document.querySelector("#reset");
-            reset.addEventListener("click", (e)=>{
-                dividers.forEach((div)=>{
-                    div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
-                })
-            })
+            addDarkDivHover();
+            addResetHover();
         }else if(currentMode == "Rainbow"){
-            let dividers = document.querySelectorAll("#container div")
-            dividers.forEach((div)=>{
-                div.addEventListener("mouseover",({target})=>{
-                    target.style.backgroundColor = `${RGBcolor()}`
-                })
-            })
-
-            let reset = document.querySelector("#reset");
-            reset.addEventListener("click", (e)=>{
-                dividers.forEach((div)=>{
-                    div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
-                })
-            }) 
+            addRainbowDivHover();
+            addResetHover();
         }
+        /*
         // Update the current slider value (each time you drag the slider handle)
         slider.oninput = function() {
             output.innerText =  `${this.value}x${this.value}`;
@@ -103,38 +107,34 @@ modeButtons.forEach((modeButton)=>{
                 container.appendChild(div);
             }
             if(currentMode == "Dark"){
-                let dividers = document.querySelectorAll("#container div")
-                dividers.forEach((div)=>{
-                    div.addEventListener("mouseover",({target})=>{
-                        target.style.backgroundColor ="rgba(108, 108, 108, 0.94)"
-                    })
-                })
-    
-                let reset = document.querySelector("#reset");
-                reset.addEventListener("click", (e)=>{
-                    dividers.forEach((div)=>{
-                        div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
-                    })
-                })
+                addDarkDivHover()
+                addResetHover()
             }else if(currentMode == "Rainbow"){
-                let dividers = document.querySelectorAll("#container div")
-                dividers.forEach((div)=>{
-                    div.addEventListener("mouseover",({target})=>{
-                        target.style.backgroundColor = `${RGBcolor()}`
-                    })
-                })
-    
-                let reset = document.querySelector("#reset");
-                reset.addEventListener("click", (e)=>{
-                    dividers.forEach((div)=>{
-                        div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
-                    })
-                }) 
+                addRainbowDivHover()
+                addResetHover()
             }
-        }
+        }*/
     })
 })
-
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    output.innerText =  `${this.value}x${this.value}`;
+    boxPerRow = this.value;
+    deleteChildren(container)
+    for(let i=0; i<boxPerRow**2; i++){
+        const div = document.createElement("div");
+        div.style.width=`${100/boxPerRow}%`;
+        div.style.height = `${100/boxPerRow}%`
+        container.appendChild(div);
+    }
+    if(currentMode == "Dark"){
+        addDarkDivHover()
+        addResetHover()
+    }else if(currentMode == "Rainbow"){
+        addRainbowDivHover()
+        addResetHover()
+    }
+}
 
 
 /*
