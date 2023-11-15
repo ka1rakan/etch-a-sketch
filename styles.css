@@ -1,6 +1,10 @@
 @font-face{
     font-family: headerFont;
-    src: url(Satisfy-Regular.ttf)
+    src: url(Satisfy-Regular.ttf);
+}
+@font-face{
+  font-family: currentModeFont;
+  src: url(KdamThmorPro-Regular.ttf);
 }
 *{
     margin:0;
@@ -150,4 +154,10 @@ main{
 .button-27:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+.current-mode-text{
+  font-size:24px;
+  color:rgb(255,215,0);
+  font-family: currentModeFont;
 }

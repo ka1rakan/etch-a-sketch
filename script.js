@@ -23,7 +23,7 @@ for(let i=0; i<boxPerRow**2; i++){
                 '__'
 */
 
-let currentMode = "Dark Mode";
+let currentMode = "Dark";
 let currentModeText = document.querySelector(".current-mode-text")
 currentModeText.textContent = `Current Mode: ${currentMode}`
 
@@ -57,7 +57,7 @@ modeButtons.forEach((modeButton)=>{
     modeButton.addEventListener("click",(e)=>{
         currentMode = e.target.value;
         currentModeText.textContent=`Current Mode: ${currentMode}`
-        if(currentMode == "Dark Mode"){
+        if(currentMode == "Dark"){
             let dividers = document.querySelectorAll("#container div")
             dividers.forEach((div)=>{
                 div.addEventListener("mouseover",({target})=>{
@@ -71,7 +71,7 @@ modeButtons.forEach((modeButton)=>{
                     div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
                 })
             })
-        }else if(currentMode == "Rainbow Mode"){
+        }else if(currentMode == "Rainbow"){
             let dividers = document.querySelectorAll("#container div")
             dividers.forEach((div)=>{
                 div.addEventListener("mouseover",({target})=>{
