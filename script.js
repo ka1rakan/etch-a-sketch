@@ -49,8 +49,13 @@ function RGBcolor() {
     const B = Math.floor(Math.random() * 256);
     const randomColor = "rgb(" + R + "," + G + "," + B + ")";  
     return randomColor;
-  }
+}
 
+function deleteChildren(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
+    }
+}
 
 let modeButtons = document.querySelectorAll(".modeButton")
 modeButtons.forEach((modeButton)=>{
@@ -86,42 +91,49 @@ modeButtons.forEach((modeButton)=>{
                 })
             }) 
         }
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+            output.innerText =  `${this.value}x${this.value}`;
+            boxPerRow = this.value;
+            deleteChildren(container)
+            for(let i=0; i<boxPerRow**2; i++){
+                const div = document.createElement("div");
+                div.style.width=`${100/boxPerRow}%`;
+                div.style.height = `${100/boxPerRow}%`
+                container.appendChild(div);
+            }
+            if(currentMode == "Dark"){
+                let dividers = document.querySelectorAll("#container div")
+                dividers.forEach((div)=>{
+                    div.addEventListener("mouseover",({target})=>{
+                        target.style.backgroundColor ="rgba(108, 108, 108, 0.94)"
+                    })
+                })
+    
+                let reset = document.querySelector("#reset");
+                reset.addEventListener("click", (e)=>{
+                    dividers.forEach((div)=>{
+                        div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
+                    })
+                })
+            }else if(currentMode == "Rainbow"){
+                let dividers = document.querySelectorAll("#container div")
+                dividers.forEach((div)=>{
+                    div.addEventListener("mouseover",({target})=>{
+                        target.style.backgroundColor = `${RGBcolor()}`
+                    })
+                })
+    
+                let reset = document.querySelector("#reset");
+                reset.addEventListener("click", (e)=>{
+                    dividers.forEach((div)=>{
+                        div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
+                    })
+                }) 
+            }
+        }
     })
 })
-
-
-
-
-function deleteChildren(parent){
-    while(parent.firstChild){
-        parent.removeChild(parent.firstChild)
-    }
-}
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-    output.innerText =  `${this.value}x${this.value}`;
-    boxPerRow = this.value;
-    deleteChildren(container)
-    for(let i=0; i<boxPerRow**2; i++){
-        const div = document.createElement("div");
-        div.style.width=`${100/boxPerRow}%`;
-        div.style.height = `${100/boxPerRow}%`
-        container.appendChild(div);
-    }
-    let dividers = document.querySelectorAll("#container div")
-    dividers.forEach((div)=>{
-        div.addEventListener("mouseover",({target})=>{
-            target.style.backgroundColor ="rgba(108, 108, 108, 0.94)"
-        })
-    })
-    let reset = document.querySelector("#reset");
-    reset.addEventListener("click", (e)=>{
-        dividers.forEach((div)=>{
-            div.style.backgroundColor = "rgba(202, 202, 202, 0.94)"
-        })
-    })
-}
 
 
 
