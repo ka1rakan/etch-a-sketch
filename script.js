@@ -43,6 +43,15 @@ reset.addEventListener("click", (e)=>{
 })
 
 
+function RGBcolor() {
+    const R = Math.floor(Math.random() * 256);
+    const G = Math.floor(Math.random() * 256);
+    const B = Math.floor(Math.random() * 256);
+    const randomColor = "rgb(" + R + "," + G + "," + B + ")";  
+    return randomColor;
+  }
+
+
 let modeButtons = document.querySelectorAll(".modeButton")
 modeButtons.forEach((modeButton)=>{
     modeButton.addEventListener("click",(e)=>{
@@ -66,7 +75,7 @@ modeButtons.forEach((modeButton)=>{
             let dividers = document.querySelectorAll("#container div")
             dividers.forEach((div)=>{
                 div.addEventListener("mouseover",({target})=>{
-                    target.style.backgroundColor ="rgba(237, 250, 2, 0.8)"
+                    target.style.backgroundColor = `${RGBcolor()}`
                 })
             })
 
