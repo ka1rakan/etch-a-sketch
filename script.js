@@ -18,10 +18,14 @@ function removeBoxes() {
 }
 
 const slider = document.querySelector(".slider");
+const dimensions = document.querySelector(".dimensions");
 slider.addEventListener("change", (e) => {
     removeBoxes();
     createBoxes(e.target.value);
+    dimensions.textContent = slider.value + " x " + slider.value;
 });
+
 createBoxes(slider.value);
+dimensions.textContent = slider.value + " x " + slider.value;
 
 
