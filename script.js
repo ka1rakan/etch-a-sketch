@@ -56,3 +56,13 @@ rainbowButton.addEventListener("click", () => {
         c.style.backgroundColor = `rgb(${x},${y},${z})`;
     })
 })
+
+let blackButton = document.querySelector(".black");
+blackButton.addEventListener("click", () => {
+    let children = container.childNodes;
+    children.forEach(child => {
+        clearBox(child);
+        child.style.backgroundColor = "#2b2b2b";
+
+    })
+})
