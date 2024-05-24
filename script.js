@@ -36,8 +36,23 @@ slider.addEventListener("change", (e) => {
 createBoxes(slider.value);
 dimensions.textContent = slider.value + " x " + slider.value;
 
+function clearBox(box) {
+    box.style.opacity = "0";
+}
 let clearButton = document.querySelector(".clear");
 clearButton.addEventListener("click", () => {
     let children = container.childNodes;
-    children.forEach(c => c.style.opacity = "0");
+    children.forEach(c => clearBox(c));
+})
+
+let rainbowButton = document.querySelector(".rainbow");
+rainbowButton.addEventListener("click", () => {
+    let children = container.childNodes;
+    children.forEach(c => {
+        clearBox(c);
+        let x = Math.random() * 255;
+        let y = Math.random() * 255;
+        let z = Math.random() * 255;
+        c.style.backgroundColor = `rgb(${x},${y},${z})`;
+    })
 })
